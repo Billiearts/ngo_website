@@ -1,0 +1,160 @@
+/* Reset & Base */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+}
+
+body {
+  background: #F4F6F8;
+  color: #333;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul {
+  list-style: none;
+}
+
+/* Container */
+.container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 0;
+}
+
+/* Navbar */
+.site-header {
+  background: #2C3E50;
+  color: white;
+  padding: 15px 0;
+}
+
+.site-header .logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.main-nav {
+  display: inline-block;
+  float: right;
+}
+
+.main-nav ul {
+  display: flex;
+  gap: 20px;
+}
+
+.main-nav ul li a {
+  color: white;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+.main-nav ul li a:hover,
+.main-nav ul li a.active {
+  background: #18BC9C;
+}
+
+/* Newsletter Page */
+.newsletter-page {
+  margin-top: 40px;
+}
+
+.form {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.form label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+}
+
+.form input,
+.form textarea {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+}
+
+.form button {
+  background: #18BC9C;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.form button:hover {
+  background: #14977e;
+}
+
+/* Messages */
+.msg {
+  font-size: 0.9rem;
+  margin-top: 5px;
+  color: #2C3E50;
+}
+
+/* Footer */
+.site-footer {
+  background: #2C3E50;
+  color: white;
+  padding: 25px 0;
+  text-align: center;
+  margin-top: 60px;
+}
+
+.site-footer p {
+  margin-bottom: 12px;
+}
+
+.site-footer .social-icons {
+  margin-top: 10px;
+}
+
+.site-footer .social-icons a {
+  margin: 0 12px;
+  display: inline-block;
+  transition: all 0.3s ease;
+  color: white;
+}
+
+.site-footer .social-icons a:hover {
+  color: #18BC9C;
+  transform: scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .main-nav {
+    float: none;
+    text-align: center;
+    margin-top: 10px;
+  }
+
+  .main-nav ul {
+    flex-direction: column;
+    gap: 10px;
+  }
+}

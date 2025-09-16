@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1"/>
+  <title>Contact & Donate - ReadForward</title>
+  <link rel="stylesheet" href="css/contact.css"/>
+  <script src="https://js.stripe.com/v3/" defer></script>
+  <script src="js/main.js" defer></script>
+</head>
+<body>
+  <!-- Navbar -->
+  <header class="site-header">
+    <div class="container nav">
+      <h1 class="logo">ReadForward</h1>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="programs.html">Programs</a></li>
+          <li><a href="contact.html" class="active">Contact & Donate</a></li>
+          <li><a href="newsletter.html">Newsletter</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container contact-page">
+    <section>
+      <h2>Contact Us</h2>
+      <p>Email: info@readforward.org</p>
+      <p>Phone: +123 456 7890</p>
+      <p>Address: 123 Literacy Lane, Booktown, USA</p>
+    </section>
+
+    <section class="donation">
+      <h3>Support Us</h3>
+      <label>Amount (USD)</label>
+      <input id="donation-amount" type="number" min="1" value="10"/>
+      <button id="donate-btn" class="btn">Donate</button>
+      <p id="donation-msg" class="msg"></p>
+    </section>
+
+    <section class="volunteer">
+      <h3>Become a Volunteer</h3>
+      <form id="volunteer-form" class="form">
+        <label>Name</label>
+        <input id="name" required/>
+        <label>Email</label>
+        <input id="emailv" type="email" required/>
+        <label>Phone</label>
+        <input id="phone"/>
+        <label>Why volunteer?</label>
+        <textarea id="message"></textarea>
+        <button class="btn" type="submit">Send</button>
+        <p id="vol-msg" class="msg"></p>
+      </form>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <p>&copy; <span id="year"></span> ReadForward.</p>
+      <div class="social-icons">
+        <a href="https://www.facebook.com/ReadForward" target="_blank" rel="noopener"><img src="images/facebook.svg" alt="Facebook"></a>
+        <a href="https://twitter.com/ReadForward" target="_blank" rel="noopener"><img src="images/twitter.svg" alt="Twitter"></a>
+        <a href="https://www.instagram.com/ReadForward" target="_blank" rel="noopener"><img src="images/instagram.svg" alt="Instagram"></a>
+        <a href="https://www.linkedin.com/company/readforward" target="_blank" rel="noopener"><img src="images/linkedin.svg" alt="LinkedIn"></a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
