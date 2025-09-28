@@ -11,7 +11,7 @@
   <!-- Navbar -->
   <header class="site-header">
     <div class="container nav">
-      <h1 class="logo">ReadForward</h1>
+      <a href="index.html"><h1 class="logo">ReadForward</h1></a>
       <nav class="main-nav">
         <ul>
           <li><a href="index.html">Home</a></li>
@@ -25,15 +25,29 @@
   </header>
 
   <main class="container newsletter-page">
-    <section>
-      <h2>Subscribe to Our Newsletter</h2>
-      <p>Stay updated on our latest projects, volunteer opportunities, and fundraising events.</p>
+    <section class="newsletter-content">
+      <h2>Stay Connected With ReadForward</h2>
+      <p>Subscribe to our newsletter for the latest updates on our projects, volunteer opportunities, fundraising events, and inspiring stories from the communities we serve.</p>
+      
+      <div class="newsletter-benefits">
+        <h3>What you'll receive:</h3>
+        <ul>
+          <li>Monthly impact reports</li>
+          <li>Upcoming event announcements</li>
+          <li>Volunteer opportunities</li>
+          <li>Success stories from our programs</li>
+          <li>Exclusive updates before anyone else</li>
+        </ul>
+      </div>
+
       <form id="newsletter-form" class="form">
-        <label>Email</label>
-        <input id="email" type="email" required/>
-        <button class="btn" type="submit">Subscribe</button>
+        <label for="email">Email Address</label>
+        <input id="email" type="email" placeholder="your.email@example.com" required/>
+        <button class="btn" type="submit">Subscribe Now</button>
         <p id="newsletter-msg" class="msg"></p>
       </form>
+      
+      <p class="privacy-note">We respect your privacy. You can unsubscribe at any time. Read our <a href="#">Privacy Policy</a>.</p>
     </section>
   </main>
 
