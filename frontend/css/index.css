@@ -29,7 +29,7 @@ ul {
     padding: 20px 0;
 }
 
-/* Navbar */
+/* Navbar - Updated with Hamburger Menu */
 .site-header {
     background: #FFFFFF;
     color: #2D3748;
@@ -37,15 +37,15 @@ ul {
     box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     position: sticky;
     top: 0;
-    z-index: 100;
-    text-align: center; /* Center navbar content */
+    z-index: 1000; /* Increased z-index */
 }
 
 .nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    flex-wrap: wrap;
+    position: relative;
 }
 
 .site-header .logo {
@@ -53,13 +53,50 @@ ul {
     font-weight: 700;
     color: #4A5568;
     text-align: left;
+    z-index: 1001; /* Ensure logo stays above mobile menu */
+}
+
+/* Hamburger Menu Styles */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.hamburger-line {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #4A5568;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Hamburger Menu Animation */
+.hamburger-menu.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger-menu.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
 }
 
 .main-nav ul {
     display: flex;
     gap: 25px;
-    justify-content: center; /* Center nav items */
-    flex-wrap: wrap; /* Allow wrapping on smaller screens */
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .main-nav ul li a {
@@ -170,35 +207,175 @@ ul {
     display: block;
 }
 
-/* Intro Section */
-.intro div{
-  display: flex;
-}
-.intro h2 {
-    font-size: 2.2rem;
-    color: #2D3748;
-    margin-bottom: 20px;
-    font-weight: 700;
+/* Welcome / Intro Section - Updated Styles */
+.intro {
+  padding: 80px 0;
+  
+  position: relative;
 }
 
-.intro p {
- 
-    font-size: 1.1rem;
-    max-width: 800px;
-    margin: auto;
-    line-height: 1.7;
-    color: #4A5568;
+.intro-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.intro-text {
+    
+  text-align: left;
+  padding-right: 20px;
+}
+
+.intro h2 {
+  font-size: 2.5rem;
+  color: #2D3748;
+  margin-bottom: 15px;
+  font-weight: 700;
+  background-clip: text;
+}
+
+.intro-lead {
+  font-size: 1.3rem;
+  
+  font-weight: 600;
+  margin-bottom: 25px;
+  line-height: 1.4;
+}
+
+.intro-description {
+  font-size: 1.1rem;
+  color: #4A5568;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+/* Intro Stats */
+.intro-stats {
+  display: flex;
+  gap: 30px;
+  margin: 40px 0;
+  padding: 25px 0;
+  border-top: 1px solid #E2E8F0;
+  border-bottom: 1px solid #E2E8F0;
+}
+
+.stat-item {
+  text-align: center;
+  flex: 1;
+}
+
+.stat-number {
+  display: block;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #4299E1;
+  margin-bottom: 5px;
+}
+
+.stat-label {
+  font-size: 0.9rem;
+  color: #718096;
+  font-weight: 500;
+}
+
+/* Outline Button */
+.outline-btn {
+  background: transparent;
+  color: #4299E1;
+  border: 2px solid #4299E1;
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.outline-btn:hover {
+  background: #4299E1;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(66, 153, 225, 0.3);
+}
+
+/* Intro Visual Section */
+.intro-visual {
+  position: relative;
+}
+
+.image-container {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  transform: perspective(1000px) rotateY(-5deg) rotateX(5deg);
+  transition: transform 0.5s ease;
+}
+
+.image-container:hover {
+  transform: perspective(1000px) rotateY(0deg) rotateX(0deg);
 }
 
 .intro-image {
-    width: 100%;
-    max-width: 800px;
-    border-radius: 12px;
-    margin-top: 40px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.5s ease;
+}
+
+.image-container:hover .intro-image {
+  transform: scale(1.05);
+}
+
+.image-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, rgba(66, 153, 225, 0.1) 0%, rgba(43, 108, 176, 0.05) 100%);
+  pointer-events: none;
+}
+
+/* Intro Highlights */
+.intro-highlights {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  gap: 15px;
+}
+
+.highlight-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 20px 15px;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition: all 0.3s ease;
+  flex: 1;
+}
+
+.highlight-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+.highlight-icon {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.highlight-item span {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #2D3748;
 }
 
 /* Additional styles for the impact section */
@@ -397,6 +574,7 @@ ul {
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 30px;
   margin-bottom: 40px;
+  
 }
 
 .footer-section h3 {
@@ -440,6 +618,8 @@ ul {
 
 .footer-contact {
   list-style: none;
+   text-align: center;
+  justify-content: center;
 }
 
 .footer-contact li {
@@ -447,6 +627,7 @@ ul {
   align-items: center;
   margin-bottom: 15px;
   color: #CBD5E0;
+    justify-content: center;
 }
 
 .footer-contact svg {
@@ -456,6 +637,7 @@ ul {
 
 .social-icons {
   display: flex;
+  justify-content: center;
   gap: 15px;
   margin-top: 20px;
 }
@@ -526,6 +708,99 @@ ul {
   color: #4299E1;
 }
 
+/* Responsive Design */
+@media (max-width: 992px) {
+  .intro-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+    text-align: center;
+  }
+  
+  .intro-text {
+    padding-right: 0;
+    text-align: center;
+  }
+  
+  .intro-stats {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  
+  .stat-item {
+    flex: none;
+    min-width: 120px;
+  }
+  
+  .image-container {
+    transform: none;
+    max-width: 500px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .intro {
+    padding: 60px 0;
+  }
+  
+  .intro h2 {
+    font-size: 2rem;
+  }
+  
+  .intro-lead {
+    font-size: 1.1rem;
+  }
+  
+  .intro-stats {
+    gap: 20px;
+  }
+  
+  .stat-number {
+    font-size: 1.5rem;
+  }
+  
+  .intro-highlights {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .highlight-item {
+    flex-direction: row;
+    justify-content: flex-start;
+    text-align: left;
+    padding: 15px 20px;
+  }
+  
+  .highlight-icon {
+    margin-right: 15px;
+    margin-bottom: 0;
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .intro h2 {
+    font-size: 1.8rem;
+  }
+  
+  .intro-stats {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .stat-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: left;
+  }
+  
+  .stat-number {
+    font-size: 1.3rem;
+    margin-bottom: 0;
+  }
+}
+
 /* Responsive adjustments */
 @media (max-width: 768px) {
   .footer-content {
@@ -575,16 +850,6 @@ ul {
         justify-content: center;
         margin-bottom: 30px;
     }
-
-    .nav {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .main-nav ul {
-        gap: 15px;
-    }
-    
     .hero-image img {
         max-width: 100%;
     }
@@ -617,14 +882,179 @@ ul {
         text-align: center;
     }
     
-    .main-nav ul {
-        flex-direction: column;
-        gap: 10px;
-    }
-    
     .impact-item,
     .program-card,
     .team-member {
         max-width: 100%; /* Full width on mobile */
+    }
+}
+/* Navbar - Updated with Hamburger Menu */
+.site-header {
+    background: #FFFFFF;
+    color: #2D3748;
+    padding: 15px 0;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    position: sticky;
+    top: 0;
+    z-index: 1000; /* Increased z-index */
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+}
+
+.site-header .logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #4A5568;
+    text-align: left;
+    z-index: 1001; /* Ensure logo stays above mobile menu */
+}
+
+/* Hamburger Menu Styles */
+.hamburger-menu {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.hamburger-line {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: #4A5568;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+/* Hamburger Menu Animation */
+.hamburger-menu.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(6px, 6px);
+}
+
+.hamburger-menu.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger-menu.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+}
+
+.main-nav ul {
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.main-nav ul li a {
+    color: #4A5568;
+    font-weight: 500;
+    padding: 8px 0;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.main-nav ul li a:after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: #4299E1;
+    transition: width 0.3s ease;
+}
+
+.main-nav ul li a:hover:after,
+.main-nav ul li a.active:after {
+    width: 100%;
+}
+
+.main-nav ul li a:hover,
+.main-nav ul li a.active {
+    color: #4299E1;
+}
+
+/* Mobile Styles */
+@media (max-width: 768px) {
+    .hamburger-menu {
+        display: flex;
+    }
+    
+    .main-nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #FFFFFF;
+        box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-10px);
+        transition: all 0.3s ease;
+        z-index: 999;
+    }
+    
+    .main-nav.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+    
+    .main-nav ul {
+        flex-direction: column;
+        gap: 0;
+        padding: 20px 0;
+        text-align: center;
+    }
+    
+    .main-nav ul li {
+        width: 100%;
+    }
+    
+    .main-nav ul li a {
+        display: block;
+        padding: 15px 20px;
+        border-bottom: 1px solid #f0f0f0;
+        transition: all 0.3s ease;
+    }
+    
+    .main-nav ul li a:after {
+        display: none; /* Remove underline effect on mobile */
+    }
+    
+    .main-nav ul li a:hover,
+    .main-nav ul li a.active {
+        background-color: #4299E1;
+        color: white;
+    }
+    
+    .main-nav ul li:last-child a {
+        border-bottom: none;
+    }
+}
+
+/* Update existing responsive styles */
+@media (max-width: 992px) {
+    .nav {
+        flex-direction: row; /* Keep logo and hamburger in row */
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .site-header .logo {
+        margin-bottom: 0; /* Remove margin for mobile */
     }
 }
